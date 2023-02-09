@@ -1,9 +1,10 @@
 import { LitElement, css, html } from "lit";
-import { customElement, query, state } from "lit/decorators.js";
+import { customElement, queryAsync, state } from "lit/decorators.js";
 import { map } from "lit/directives/map.js";
 
 import {
   format,
+  setDate,
   getDate,
   startOfMonth,
   endOfMonth,
@@ -28,7 +29,8 @@ export class MyElement extends LitElement {
   @state()
   selectedDate = Date.now();
 
-  @query('.calendar')
+  // @queryAsync(".calendar")
+  // calendar: Promise<HTMLElement>;
 
   render() {
     return html`
@@ -38,11 +40,12 @@ export class MyElement extends LitElement {
       </div>
       ${this.renderCalendar()}
     `;
+
   }
 
   renderInput() {
     return html`
-      <input type="text" class="form-control" />
+      <input type="text" class="form-control" value="${format(this.selectedDate, 'yyyy-MM-dd')}" />
     `;
   }
 
@@ -55,7 +58,7 @@ export class MyElement extends LitElement {
   renderCalendar() {
     return this.showCalendar
       ? html`
-      <div class="calendar" role="application" tabindex="0">
+      <div class="calendar" tabindex="0">
         ${this.renderData()}
       </div>
     `
@@ -65,11 +68,11 @@ export class MyElement extends LitElement {
   renderData() {
     return html`
       <div class="controls">
-        <button @click="${() => this.setDatePreviousYear()}"><<</button>
-        <button @click="${() => this.setDatePreviousMonth()}"><</button>
+        <button @click="${() => this.setDatePreviousYear()}"></button>
+        <button @click="${() => this.setDatePreviousMonth()}"></button>
         <span>${format(this.selectedDate, 'MMMM yyyy')}</span>
-        <button @click="${() => this.setDateNextMonth()}">></button>
-        <button @click="${() => this.setDateNextYear()}">>></button>
+        <button @click="${() => this.setDateNextMonth()}"></button>
+        <button @click="${() => this.setDateNextYear()}"></button>
       </div>
       <table tabindex="0" @keydown="${this.handleTableKeyDown}">
         <caption>${format(this.selectedDate, 'MMMM yyyy')}</caption>
@@ -120,7 +123,7 @@ export class MyElement extends LitElement {
     const gridDays = chunk(
       [
         ...Array.from({ length: getDay(startDay) }).fill(null),
-        ...Array.from({ length: daysInMonth }, (_, i) => i + 1),
+        ...Array.from({ length: daysInMonth }, (_, i) => setDate(this.selectedDate, i + 1)),
         ...Array.from({ length: 6 - getDay(endDay) }).fill(null),
       ],
       7
@@ -140,16 +143,21 @@ export class MyElement extends LitElement {
         <td
           @click="${() => this.handleDateSelection(day)}"
           role="gridcell"
-          aria-selected=${isEqual(getDate(this.selectedDate), day)}>
-            <span>${day}</span>
+          aria-selected=${isEqual(getDate(this.selectedDate), getDate(day))}>
+            <span>${getDate(day)}</span>
         </td>`
       : html`<td></td>`;
   }
 
-  toggleCalender() {
+  async toggleCalender() {
     this.showCalendar = !this.showCalendar;
     if (this.showCalendar) {
-      this.focusElement(this.calendar);
+      // this.focusElement(await this.calendar); // ?
+      /**
+       *  Alt technique…
+       *  In this block, query for calendar element – if available? –  and set focus. May change technique and simply hide the calendar rather than add and remove to ShadowDOM.
+       *
+       **/
     }
   }
 
@@ -157,15 +165,27 @@ export class MyElement extends LitElement {
     element.focus();
   }
 
+  /**
+   * Handles click events on calendar days
+   * @param date
+   */
   handleDateSelection(date) {
+    console.log(date);
     const dateString = format(date, "yyyy-MM-dd");
-    this.handleSelectDate(dateString);
+    this.handleSelectDate(date);
   }
 
   handleSelectDate(date) {
-    console.log(date);
+    console.log('wtf', date);
+    this.setSelectedDate(date)
+
   }
 
+  /**
+   * Handles keyboard events on calendar table
+   * @param event
+   * @returns
+   */
   handleTableKeyDown(event: KeyboardEvent) {
     const keyCode = event.code;
 
@@ -177,6 +197,7 @@ export class MyElement extends LitElement {
         return;
       case "Escape":
         // Close calendar
+        this.toggleCalender();
         return;
       case "PageUp":
         // Previous month
@@ -272,6 +293,10 @@ export class MyElement extends LitElement {
       text-align: center;
     }
 
+    .calendar:focus {
+      outline: 2px solid red;
+    }
+
     .input-group {
       position: relative;
       display: flex;
@@ -300,6 +325,29 @@ export class MyElement extends LitElement {
     .input-group > :not(:last-child) {
       border-top-right-radius: 0;
       border-bottom-right-radius: 0;
+    }
+
+    .input-group > :not(:first-child) {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+      margin-left: -1px;
+    }
+
+    .input-group button {
+      position: relative;
+      z-index: 2;
+    }
+
+    button {
+      display: inline-block;
+      text-transform: none;
+      -webkit-appearance: none;
+      background-color: white;
+      border: 1px solid #017d87;
+      border-radius: 3px;
+      text-decoration: none;
+      text-align: center;
+      color: #017d87;
     }
 
     td {
