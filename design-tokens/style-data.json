@@ -1,0 +1,321 @@
+{
+  "list": {
+    "name": "Talis",
+    "organization": "talis",
+    "colors": [
+      {
+        "name": "Monochrome pallet",
+        "colors": [
+          {
+            "name": "Grey 100",
+            "value": "#f8f9fa"
+          },
+          {
+            "name": "Grey 200",
+            "value": "#e9ecef"
+          },
+          {
+            "name": "Grey 300",
+            "value": "#dee2e6"
+          },
+          {
+            "name": "Grey 400",
+            "value": "#ced4da"
+          },
+          {
+            "name": "Grey 500",
+            "value": "#adb5bd"
+          },
+          {
+            "name": "Grey 600",
+            "value": "#868e96"
+          },
+          {
+            "name": "Grey 700",
+            "value": "#495057"
+          },
+          {
+            "name": "Grey 800",
+            "value": "#343a40"
+          },
+          {
+            "name": "Grey 900",
+            "value": "#212529"
+          }
+        ]
+      },
+      {
+        "name": "Primary palette",
+        "colors": [
+          {
+            "name": "Primary",
+            "value": "#077d87"
+          },
+          {
+            "name": "Secondary",
+            "value": "#ff4d96"
+          }
+        ]
+      },
+      {
+        "name": "Secondary palette",
+        "colors": [
+          {
+            "name": "Yellow",
+            "value": "#ffc943"
+          },
+          {
+            "name": "Light Green",
+            "value": "#77e0ce"
+          },
+          {
+            "name": "Grey",
+            "value": "#aad0d0"
+          },
+          {
+            "name": "Blue",
+            "value": "#4cc3d6"
+          },
+          {
+            "name": "Red for Graphics",
+            "value": "#ef4d4d"
+          },
+          {
+            "name": "Accessible on Black Background",
+            "value": "#01858e"
+          },
+          {
+            "name": "Red for text",
+            "value": "#ce1212"
+          }
+        ]
+      }
+    ],
+    "fonts": [
+      {
+        "name": "Open Sans",
+        "family": "Open Sans",
+        "fallback": "helvetica",
+        "variants": [
+          {
+            "fontStyle": "normal",
+            "fontWeight": 400
+          },
+          {
+            "fontStyle": "italic",
+            "fontWeight": 400
+          },
+          {
+            "fontStyle": "normal",
+            "fontWeight": 300
+          },
+          {
+            "fontStyle": "italic",
+            "fontWeight": 300
+          },
+          {
+            "fontStyle": "normal",
+            "fontWeight": 600
+          },
+          {
+            "fontStyle": "italic",
+            "fontWeight": 600
+          },
+          {
+            "fontStyle": "normal",
+            "fontWeight": "bold"
+          },
+          {
+            "fontStyle": "italic",
+            "fontWeight": "bold"
+          },
+          {
+            "fontStyle": "normal",
+            "fontWeight": 800
+          },
+          {
+            "fontStyle": "italic",
+            "fontWeight": 800
+          }
+        ]
+      },
+      {
+        "name": "Helvetica",
+        "family": "Helvetica",
+        "variants": [
+          {
+            "fontStyle": "normal",
+            "fontWeight": 400
+          },
+          {
+            "fontStyle": "italic",
+            "fontWeight": 400
+          },
+          {
+            "fontStyle": "normal",
+            "fontWeight": 300
+          },
+          {
+            "fontStyle": "italic",
+            "fontWeight": 300
+          },
+          {
+            "fontStyle": "normal",
+            "fontWeight": "bold"
+          },
+          {
+            "fontStyle": "italic",
+            "fontWeight": "bold"
+          }
+        ]
+      }
+    ],
+    "typeStyles": [
+      {
+        "fontSize": "36px",
+        "lineHeight": "38px",
+        "textAlign": "start",
+        "color": "#000000",
+        "fontStyle": "normal",
+        "fontWeight": "300",
+        "fontFamily": "Open Sans, helvetica",
+        "name": "h1",
+        "backgroundColor": null
+      },
+      {
+        "fontSize": "24px",
+        "lineHeight": "28px",
+        "textAlign": "start",
+        "color": "#000000",
+        "fontStyle": "normal",
+        "fontWeight": "300",
+        "fontFamily": "Open Sans, helvetica",
+        "name": "h2",
+        "backgroundColor": null
+      },
+      {
+        "fontSize": "20px",
+        "lineHeight": "27px",
+        "textAlign": "start",
+        "color": "#000000",
+        "fontStyle": "normal",
+        "fontWeight": "300",
+        "fontFamily": "Open Sans, helvetica",
+        "name": "h3",
+        "backgroundColor": null
+      },
+      {
+        "fontSize": "18px",
+        "lineHeight": "27px",
+        "textAlign": "start",
+        "color": "#000000",
+        "fontStyle": "normal",
+        "fontWeight": "300",
+        "fontFamily": "Open Sans, helvetica",
+        "name": "h4",
+        "backgroundColor": null
+      },
+      {
+        "fontSize": "18px",
+        "lineHeight": "18px",
+        "textAlign": "start",
+        "color": "#000000",
+        "fontStyle": "normal",
+        "fontWeight": "bold",
+        "fontFamily": "Open Sans, helvetica",
+        "name": "h5",
+        "backgroundColor": null
+      },
+      {
+        "fontSize": "16px",
+        "lineHeight": "18px",
+        "textAlign": "start",
+        "color": "#495057",
+        "fontStyle": "normal",
+        "fontWeight": "bold",
+        "fontFamily": "Open Sans, helvetica",
+        "name": "h6",
+        "backgroundColor": null
+      },
+      {
+        "fontSize": "13px",
+        "lineHeight": "18px",
+        "textAlign": "start",
+        "color": "#495057",
+        "fontStyle": "normal",
+        "fontWeight": "400",
+        "fontFamily": "Helvetica",
+        "name": "Body",
+        "backgroundColor": null
+      },
+      {
+        "fontSize": "13px",
+        "lineHeight": "normal",
+        "textAlign": "start",
+        "color": "#000000",
+        "fontStyle": "normal",
+        "fontWeight": "400",
+        "fontFamily": "Open Sans, helvetica",
+        "name": "Body Small",
+        "backgroundColor": null
+      },
+      {
+        "fontSize": "16px",
+        "lineHeight": "18px",
+        "textAlign": "start",
+        "color": null,
+        "textDecoration": "underline",
+        "fontStyle": "normal",
+        "fontWeight": "400",
+        "fontFamily": "Open Sans, helvetica",
+        "name": "Link",
+        "backgroundColor": null
+      },
+      {
+        "fontSize": "13px",
+        "lineHeight": "normal",
+        "textAlign": "start",
+        "color": null,
+        "textDecoration": "underline",
+        "fontStyle": "normal",
+        "fontWeight": "400",
+        "fontFamily": "Helvetica",
+        "name": "Link Small",
+        "backgroundColor": null
+      },
+      {
+        "fontSize": "13px",
+        "lineHeight": "normal",
+        "textAlign": "start",
+        "color": "#000000",
+        "fontStyle": "normal",
+        "fontWeight": "bold",
+        "fontFamily": "Helvetica",
+        "name": "Table Header [th]",
+        "backgroundColor": null
+      },
+      {
+        "fontSize": "16px",
+        "lineHeight": "18px",
+        "textAlign": "start",
+        "color": "#495057",
+        "fontStyle": "normal",
+        "fontWeight": "400",
+        "fontFamily": "Open Sans, helvetica",
+        "name": "Body",
+        "backgroundColor": null
+      },
+      {
+        "fontSize": "16px",
+        "lineHeight": "18px",
+        "textAlign": "start",
+        "color": "#495057",
+        "fontStyle": "normal",
+        "fontWeight": "400",
+        "fontFamily": "Open Sans, helvetica",
+        "name": "Body",
+        "backgroundColor": null
+      }
+    ]
+  }
+}
