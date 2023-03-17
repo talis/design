@@ -6,14 +6,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <title>Vite + Lit + TS</title>
+  <title>tfs-file-upload | TfS Components</title>
   <script type="module" src="/src/my-element.ts"></script>
   <link rel="stylesheet" href="https://talis.github.io/bootstrap-theme/assets/css/custom-full.css">
   <style>
     :root {
       --talis-drop-bg: var(--talis-gray-100);
     }
-
   </style>
 </head>
 
@@ -28,7 +27,7 @@
       <div class="col-md-7">
       <form>
         <div class="form-group">
-          <my-element></my-element>
+          <tfs-file-upload></tfs-file-upload>
         </div>
         <div class="form-group">
           <label class="form-label" for="name">Name</label>
@@ -48,7 +47,7 @@
 
     const formData = new FormData();
 
-    const file = document.querySelector('my-element').files[0];
+    const file = document.querySelector('tfs-file-upload').files[0];
     const fileName = document.querySelector('#name').value;
 
     formData.append('file', file);
@@ -58,13 +57,14 @@
 
     for (let index = 0; index <= 100; index++) {
       setTimeout(() => {
-        document.querySelector('my-element').setAttribute('progress', index);
+        document.querySelector('tfs-file-upload').setAttribute('progress', index);
 
       }, 400);
     }
   });
 
-  document.querySelector('my-element').onFileDrop = function () {
+  // Example: Do something on drop event
+  document.querySelector('tfs-file-upload').onFileDrop = function () {
     fetch('https://reqres.in/api/register', {
       method: 'POST',
       headers: {
@@ -85,13 +85,12 @@
       });
   }
 
-  document.querySelector('my-element').addEventListener('filedropped', (event) => {
+  document.querySelector('tfs-file-upload').addEventListener('filedropped', (event) => {
     console.log('dropped file!', event.detail.file);
   });
 
-  document.querySelector('my-element').addEventListener('onchange', (event) => {
+  document.querySelector('tfs-file-upload').addEventListener('onchange', (event) => {
     console.log('onchanged', event);
-
   });
 </script>
 

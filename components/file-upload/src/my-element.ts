@@ -1,8 +1,8 @@
 import { LitElement, css, html } from 'lit'
 import { customElement, property, query } from 'lit/decorators.js'
 
-@customElement('my-element')
-export class MyElement extends LitElement {
+@customElement('tfs-file-upload')
+export class TfsFileUpload extends LitElement {
   static formAssociated = true;
   @query('.c-resource__file-upload')
   form!: HTMLElement;
@@ -97,8 +97,6 @@ export class MyElement extends LitElement {
       this.handleFiles(files);
     }
     // this._dispatchFile('yo');
-
-    // this.onFileDrop();
   }
 
   onDragOver(event: DragEvent) {
@@ -239,6 +237,6 @@ export class MyElement extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    'my-element': MyElement
+    'tfs-file-upload': TfsFileUpload
   }
 }
