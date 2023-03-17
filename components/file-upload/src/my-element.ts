@@ -184,13 +184,23 @@ export class MyElement extends LitElement {
       display: block;
     }
 
+    .c-resource__file-upload:hover,
+    .c-resource__file-upload:focus-within,
     .is-dragover {
       background-color: var(--talis-drop-bg);
       border-color: #017d87;
     }
 
     [type="file"] {
-      display: none;
+      position: absolute !important;
+      width: 1px !important;
+      height: 1px !important;
+      padding: 0 !important;
+      margin: -1px !important;
+      overflow: hidden !important;
+      clip: rect(0, 0, 0, 0) !important;
+      white-space: nowrap !important;
+      border: 0 !important;
     }
 
     .field-hint {
